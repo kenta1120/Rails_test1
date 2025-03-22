@@ -1,0 +1,42 @@
+<h3>予定一覧</h3>
+
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice]%></p>
+<% end %>
+
+<table>
+  <thead>
+    <tr class="theme">
+      <th>id</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日</th>
+    </tr>
+  </thead>
+
+  <tbody class="menu">
+    <% time = Time.now %>
+    <% @schedules.each do |schedule|%>
+      <tr>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.title %></td>
+        <td><%= schedule.start.strftime("%Y/%m/%d") %></td>
+        <td><%= schedule.end_date.strftime("%Y/%m/%d") %></td>
+        <td><%= schedule.allday ? "◯" : "" %></td>
+        <td><%= schedule.updated_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td><%= schedule.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+        <td><%= link_to "詳細", schedule %></td>
+        <td><%= link_to "編集", [:edit, schedule] %></td>
+        <td>
+          <%= link_to "削除", schedule, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p>本日の日付: <%= Time.zone.today.strftime("%Y/%m/%d")%></p>
+<p>予定の合計数: <%= @schedules.count%></p>
+<p><%= link_to "予定の新規追加", new_schedule_path %></p>
