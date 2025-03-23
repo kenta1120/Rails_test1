@@ -1,0 +1,36 @@
+table  {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+ul {
+    list-style: none;
+}
+
+.notice {
+    color: black;
+    padding: 10px;
+    border: 1px solid aqua;
+    width: 300px;
+    border-radius: 5px;
+}
+
