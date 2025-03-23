@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 2025_03_22_003503) do
     t.string "title"
     t.date "start"
     t.date "end_date"
-    t.integer "update_day"
+    t.boolean "allday", default: false
+    t.text "shedule_memo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "allday", default: false
     t.text "schedule_memo"
   end
 
